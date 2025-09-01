@@ -105,3 +105,4 @@ class FSDPEngineConfig(BaseConfig):
     model_dtype: str = "fp32"
     use_orig_params: bool = False
     mixed_precision: Optional[dict[str, Any]] = None
+    use_fp8: bool = False

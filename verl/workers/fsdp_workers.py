@@ -285,7 +285,7 @@ class ActorRolloutRefWorker(Worker, DistProfilerExtension):
         else:
             torch_dtype = PrecisionType.to_dtype(torch_dtype)
 
-        use_fp8 = fsdp_config.get('fp8', False)
+        use_fp8 = fsdp_config.get('use_fp8', False)
         if use_fp8:
             print(f"Using FP8 for {role}")
             assert self.config.actor.strategy == 'fsdp2'
@@ -1111,7 +1111,7 @@ class CriticWorker(Worker, DistProfilerExtension):
         torch_dtype = self.config.model.fsdp_config.get("model_dtype", "fp32")
         torch_dtype = PrecisionType.to_dtype(torch_dtype)
 
-        use_fp8 = self.config.model.fsdp_config.get('fp8', False)
+        use_fp8 = self.config.model.fsdp_config.get('use_fp8', False)
         if use_fp8:
             from torchao.float8 import convert_to_float8_training, Float8LinearConfig
 
