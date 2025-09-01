@@ -53,6 +53,9 @@ fsdp_config:
   # Target class for this configuration
   _target_: verl.workers.config.FSDPEngineConfig
 
+  # use fp8 training
+  fp8: False
+
   # policy for wrapping the model
   wrap_policy:
 
